@@ -26,6 +26,12 @@ This a simple API for recording and tracking ICD codes
     docker-compose up
 ```
 
+### Test Logins
+```
+Email: clem.clem@gmail.com
+Password: password
+```
+
 # Notes:
 
 ### A sample csv file with dummy data of 1000 can be found in utility folder
