@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    container_name: "icd-code-api"
+    env_file:
+      - .env.dev
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: ./entrypoint.sh
+  db:
+    image: "postgres:13-alpine"
+    container_name: "icd-code-db"
+    ports:
+      - 5433:5432
+    env_file:
+      - .env.dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
